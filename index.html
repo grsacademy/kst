@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김승태 - Build Your Mental Muscle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">KST <span>Portfolio</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#career">경력사항</a></li>
+                <li><a href="#certificate">자격증</a></li>
+                <li><a href="#portfolio">포트폴리오</a></li>
+                <li><a href="#contact" class="nav-contact-btn">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="메뉴">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO / HOME ===== -->
+    <section id="home">
+        <div class="hero-content">
+
+            <!-- 텍스트 -->
+            <div class="hero-text">
+                <div class="hero-badge">HRD Professional</div>
+                <h1 class="hero-title-en">Build Your<br><span>Mental Muscle</span></h1>
+                <p class="hero-title-ko">마음의 근육을 키우자</p>
+                <div class="hero-divider"></div>
+                <p class="hero-greeting">안녕하세요. <strong>김승태</strong>입니다.</p>
+                <p class="hero-desc">
+                    사람의 잠재력을 이해하는 일, 배움의 가치를 두는 일,<br>
+                    구성원이 머물며 함께 성장하고 싶은 조직을 만듭니다.<br>
+                    작지만 선명한 성장의 변화를 만드는 HRD를 지향합니다.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn-primary">포트폴리오 보기</a>
+                    <a href="#contact" class="btn-outline">연락하기</a>
+                </div>
+            </div>
+
+            <!-- 프로필 이미지 -->
+            <div class="hero-image-wrapper">
+                <div class="profile-image-container">
+                    <div class="profile-image-ring"></div>
+                    <div class="profile-image-inner">
+                        <!-- 프로필 사진을 넣으려면 아래 img 태그의 src를 변경하세요 -->
+                        <!-- 예: src="profile.jpg" -->
+                        <img src="st.png"  alt="김승태 프로필 사진" id="profileImg"
+                             onerror="this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';">
+                        <div class="profile-placeholder" id="profilePlaceholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <p>프로필 사진을<br>여기에 넣어주세요</p>
+                        </div>
+                    </div>
+                    <div class="profile-badge">SCA 공인 트레이너</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CAREER ===== -->
+    <section id="career">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Experience</span>
+                <h2 class="section-title">경력 <span>사항</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="career-grid">
+
+                <div class="career-card">
+                    <div class="career-icon">🏆</div>
+                    <div class="career-info">
+                        <span class="career-year">2024</span>
+                        <p class="career-title">창립 45주년 VCA 개인부문 우수상 (Respect)</p>
+                    </div>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-icon">🥇</div>
+                    <div class="career-info">
+                        <span class="career-year">2015</span>
+                        <p class="career-title">창립 36주년 협력부문 우수사원</p>
+                    </div>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-icon">🎓</div>
+                    <div class="career-info">
+                        <span class="career-year">2017 ~ 현재</span>
+                        <p class="career-title">SCA AST (Authorized SCA Trainer)</p>
+                    </div>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-icon">☕</div>
+                    <div class="career-info">
+                        <span class="career-year">2016 ~ 현재</span>
+                        <p class="career-title">LOTTE GRS ACADEMY 커피 교육 강사</p>
+                    </div>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-icon">🏅</div>
+                    <div class="career-info">
+                        <span class="career-year">2017</span>
+                        <p class="career-title">Korea National Barista Championship 운영위원</p>
+                    </div>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-icon">⚖️</div>
+                    <div class="career-info">
+                        <span class="career-year">2015</span>
+                        <p class="career-title">Korea Barista Championship 심사위원</p>
+                    </div>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-icon">🎯</div>
+                    <div class="career-info">
+                        <span class="career-year">2013</span>
+                        <p class="career-title">Korea Barista Championship 본선</p>
+                    </div>
+                </div>
+
+                <div class="career-card">
+                    <div class="career-icon">⭐</div>
+                    <div class="career-info">
+                        <span class="career-year">2012</span>
+                        <p class="career-title">Angel Barista Championship 결선</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATE ===== -->
+    <section id="certificate">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Qualifications</span>
+                <h2 class="section-title" style="color:#fff;">보유 <span style="color:#6dbfaa;">자격증</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="cert-grid">
+			
+			  <div class="cert-card">
+                    <div class="cert-icon">📋</div>
+                    <p class="cert-name">HRD 전문가<br>1급</p>
+                    <p class="cert-category">HRD</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🎓</div>
+                    <p class="cert-name">SCA AST<br>(공인 트레이너)</p>
+                    <p class="cert-category">SCA 자격증</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">☕</div>
+                    <p class="cert-name">Barista Skills<br>Professional</p>
+                    <p class="cert-category">SCA 자격증</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🔥</div>
+                    <p class="cert-name">Roasting<br>Professional</p>
+                    <p class="cert-category">SCA 자격증</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🫖</div>
+                    <p class="cert-name">Brewing<br>Professional</p>
+                    <p class="cert-category">SCA 자격증</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🌿</div>
+                    <p class="cert-name">Greenbean<br>Professional</p>
+                    <p class="cert-category">SCA 자격증</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">👅</div>
+                    <p class="cert-name">Sensory Skills<br>Professional</p>
+                    <p class="cert-category">SCA 자격증</p>
+                </div>
+				
+				 <div class="cert-card">
+                    <div class="cert-icon">🚗</div>
+                    <p class="cert-name">1종 대형<br>Driver's License</p>
+                    <p class="cert-category">운전면허</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🚙</div>
+                    <p class="cert-name">1종 보통<br>Driver's License</p>
+                    <p class="cert-category">운전면허</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🛵</div>
+                    <p class="cert-name">원동기<br>Driver's License</p>
+                    <p class="cert-category">운전면허</p>
+                </div>
+
+              
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">주요 <span>포트폴리오</span></h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- 연도 탭 -->
+            <div class="timeline-tabs">
+                <button class="tab-btn active" data-year="2026">2026</button>
+                <button class="tab-btn" data-year="2025">2025</button>
+                <button class="tab-btn" data-year="2024">2024</button>
+                <button class="tab-btn" data-year="2023">2023</button>
+                <button class="tab-btn" data-year="2016">2016 - 2022</button>
+            </div>
+
+            <!-- 2026 -->
+            <div class="timeline-content active" id="year-2026">
+                <div class="portfolio-list">
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">신입 점포관리자 입문 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">스탠브루 점포관리자 양성교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">스탠브루 음료, 기기, 위생 매뉴얼 정립</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">스탠브루 파일럿샵 구축 기획 및 시행</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">꿈길 바리스타 직업체험 기획 및 운영</p></div>
+                </div>
+            </div>
+
+            <!-- 2025 -->
+            <div class="timeline-content" id="year-2025">
+                <div class="portfolio-list">
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">전부문 AM 역량 강화 교육 기획 및 운영 (AI 리터러시 교육)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 점포관리자 역량 강화 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피 유관직무 대상 SCA 자격증 과정 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">롯데백화점 MVG 라운지 매니저 라떼아트 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">금천 진로진학 박람회 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">교육부 주관 바리스타 직업체험 교육기부 기관 재인증 (~2028)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">꿈길 바리스타 직업체험 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">엔제리너스 가맹 점포관리자 양성교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">온러닝(교육 플랫폼) 구축 기획</p></div>
+                </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="timeline-content" id="year-2024">
+                <div class="portfolio-list">
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">금천 진로진학 박람회 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">롯데지알에스 X 금천구청 업무협약 MOU 기획 (바리스타 교육 관련)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">꿈길 바리스타 직업체험 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">파스퇴르밀크바 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피 유관직무 대상 SCA 자격증 과정 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">전부문 점포관리자 역량 강화 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 책임MATE 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 STAFF 입문교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">롯데인재개발원 아크로폴리스 콘텐츠 기획 및 촬영 (커피 한 잔의 여정 1, 2편)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">쇼콜라팔레트 카카오그라인더 매뉴얼 제작</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">롯데인재개발원 DESIGN THINKING AGENT</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">엔제리너스 가맹 점포관리자 양성교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">교육장 이전 업무 (삼전 → 독산)</p></div>
+                </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="timeline-content" id="year-2023">
+                <div class="portfolio-list">
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">롯데인재개발원 모더레이터 선정 (롯데인의 토론 커피 과정)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">교육장 이전 업무 (마곡 → 삼전)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 QTF 역량 강화 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 점포관리자 SCA 자격증 과정 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">신입 점포관리자 입문교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 STAFF 입문 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">엔제리너스 가맹 점포관리자 양성교육 기획 및 운영</p></div>
+                </div>
+            </div>
+
+            <!-- 2016-2022 -->
+            <div class="timeline-content" id="year-2016">
+                <div class="portfolio-list">
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">교육부 주관 바리스타 직업체험 교육기부 기관 인증 (~2025)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">엔제리너스 바리스타 사내인증제 감독관</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">지방 지점 교육장 리뉴얼 업무</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">교육장 이전 업무 (길동 → 마곡)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">외식경영대학 오픈식 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 매뉴얼 지류 → 동영상 변환 업무 기획 및 시행</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">롯데인재개발원 '나는 강사다' 콘텐츠 기획 및 제작</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 점포관리자 대상 SCA 자격증 과정 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">본부직원 대상 성희롱예방교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">롯데백화점 MVG 매니저 대상 SCA 자격증 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">롯데백화점 MVG 매니저 대상 티마스터 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 SV 대상 직무 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 점포관리자 대상 직무 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 STAFF 입문 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">엔제리너스 가맹 점포관리자 양성교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">신입 점포관리자 입문교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">KKD 커피교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">STAFF 리프레시 교육 기획 및 운영</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">청년희망나눔 바리스타 교육 기획 및 운영 (대중소기업 상생일자리 프로그램)</p></div>
+                    <div class="portfolio-item"><div class="portfolio-dot"></div><p class="portfolio-text">커피부문 서비스 캠페인 기획 및 운영</p></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">연락처 <span>정보</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="contact-wrapper">
+
+               <!-- contact-wrapper 안의 전체 내용을 아래로 교체 -->
+<div class="contact-wrapper">
+
+    <div class="contact-info-side">
+        <h3>함께 성장하고 싶으신가요?</h3>
+        <p>언제든지 편하게 연락 주세요.<br>사람과 배움에 관한 이야기라면 언제나 환영합니다.</p>
+        <div class="contact-items">
+
+            <div class="contact-item">
+                <div class="contact-item-icon">👤</div>
+                <div>
+                    <p class="contact-item-label">이름</p>
+                    <p class="contact-item-value">김승태</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-item-icon">📞</div>
+                <div>
+                    <p class="contact-item-label">전화번호</p>
+                    <p class="contact-item-value">02-709-1039</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-item-icon">📍</div>
+                <div>
+                    <p class="contact-item-label">주소</p>
+                    <p class="contact-item-value">서울시 금천구 벚꽃로 104<br>금천롯데타워 9층</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ✅ 심플하게 교체된 오른쪽 카드 -->
+    <div class="contact-card-side">
+        <div class="contact-card-inner">
+            <span class="contact-card-logo">☕</span>
+            <h4>Build Your Mental Muscle</h4>
+            <p class="contact-card-sub">마음의 근육을 키우자</p>
+            <div class="contact-card-divider"></div>
+            <p class="contact-card-name">김승태</p>
+            <p class="contact-card-role">HRD Professional · SCA AST</p>
+            <p class="contact-card-role">LOTTE GRS Academy</p>
+        </div>
+    </div>
+
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-container">
+            <p class="footer-logo">KST <span>Portfolio</span></p>
+            <p class="footer-copy">© 2026 김승태. Build Your Mental Muscle.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
