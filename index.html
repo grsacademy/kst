@@ -4,7 +4,252 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>김승태 - Build Your Mental Muscle</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== 통합된 CSS ===== */
+        :root {
+            --main-color: #005840;
+            --sub-bg: #F4F7F5;
+            --card-bg: #ffffff;
+            --text-dark: #222;
+            --text-gray: #666;
+            --accent-light: #D1E2D3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--sub-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            word-break: keep-all;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        #navbar {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .nav-container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 15px 20px; display: flex;
+            justify-content: space-between; align-items: center;
+            flex-wrap: wrap; /* 모바일 반응형 대응 */
+        }
+        .nav-logo { font-size: 1.2rem; font-weight: bold; color: var(--main-color); }
+        .nav-menu { display: flex; gap: 20px; list-style: none; align-items: center; flex-wrap: wrap; justify-content: center; }
+        .nav-menu li a { font-weight: 500; font-size: 0.95rem; }
+        .nav-menu li a:hover { color: var(--main-color); }
+        .nav-contact-btn {
+            background: var(--main-color); color: #fff !important;
+            padding: 8px 16px; border-radius: 20px;
+        }
+
+        /* Section Common */
+        .section-container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
+        section {
+            opacity: 0; 
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-header { margin-bottom: 40px; text-align: center; }
+        .section-label { display: block; color: var(--main-color); font-weight: bold; letter-spacing: 2px; margin-bottom: 5px; font-size: 0.9rem; }
+        .section-title { font-size: 2rem; color: var(--text-dark); }
+        .section-title span { color: var(--main-color); }
+        .section-divider { width: 50px; height: 3px; background: var(--main-color); margin: 15px auto 0; }
+
+        /* Hero / Home */
+        #home { padding: 150px 20px 80px; max-width: 1200px; margin: 0 auto; }
+        .hero-content { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
+        .hero-text { flex: 1; }
+        .hero-badge { display: inline-block; background: var(--accent-light); color: var(--main-color); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; margin-bottom: 15px; }
+        .hero-title-en { font-size: 3rem; line-height: 1.2; margin-bottom: 10px; }
+        .hero-title-en span { color: var(--main-color); }
+        .hero-title-ko { font-size: 1.5rem; color: var(--text-gray); margin-bottom: 20px; }
+        .hero-divider { width: 60px; height: 4px; background: var(--main-color); margin-bottom: 20px; }
+        .hero-greeting { font-size: 1.2rem; margin-bottom: 10px; }
+        .hero-desc { color: var(--text-gray); margin-bottom: 30px; line-height: 1.8; }
+        .hero-buttons a { display: inline-block; padding: 12px 25px; border-radius: 30px; font-weight: bold; margin-right: 10px; margin-bottom: 10px; }
+        .btn-primary { background: var(--main-color); color: #fff; }
+        .btn-outline { border: 2px solid var(--main-color); color: var(--main-color); }
+        
+        .hero-image-wrapper { flex: 0.8; text-align: center; }
+        .profile-image-inner {
+            width: 300px; height: 300px; margin: 0 auto 20px;
+            border-radius: 50%; /* 완벽한 원형으로 복구 */
+            overflow: hidden; background: var(--accent-light);
+            box-shadow: 0 10px 30px rgba(0,88,64,0.15);
+        }
+        .profile-image-inner img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-badge { font-weight: bold; color: var(--main-color); margin-top: 15px; }
+
+        /* Grid Layouts (Career & Cert) */
+        .career-grid, .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .career-card, .cert-card {
+            background: var(--card-bg);
+            padding: 25px; border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .career-card:hover, .cert-card:hover { transform: translateY(-5px); }
+        .career-icon, .cert-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .career-year { color: var(--main-color); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .career-title, .cert-name { font-weight: bold; color: var(--text-dark); }
+        .cert-category { color: var(--text-gray); font-size: 0.85rem; margin-top: 5px; }
+        
+        /* Certificate Background Custom */
+        #certificate { background: var(--main-color); color: #fff; padding-bottom: 80px;}
+        #certificate .section-label { color: var(--accent-light); }
+        #certificate .section-title { color: #fff; }
+        #certificate .section-title span { color: #6dbfaa; } 
+        #certificate .section-divider { background: var(--accent-light); }
+        #certificate .cert-card { color: var(--text-dark); }
+
+        /* Portfolio */
+        .timeline-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn { background: #e0e0e0; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; color: var(--text-gray); }
+        .tab-btn.active { background: var(--main-color); color: #fff; }
+        .timeline-content { display: none; background: var(--card-bg); padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .timeline-content.active { display: block; }
+        .portfolio-list { display: grid; gap: 15px; }
+        .portfolio-item { display: flex; align-items: center; gap: 15px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .portfolio-item:last-child { border-bottom: none; }
+        .portfolio-dot { width: 8px; height: 8px; background: var(--main-color); border-radius: 50%; flex-shrink: 0; }
+        .portfolio-text { font-size: 1rem; color: var(--text-dark); }
+        
+        /* Contact */
+        .contact-card-wide {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,88,64,0.08);
+            border-top: 5px solid var(--main-color);
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .contact-header h3 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        .contact-header p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        .contact-grid-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .contact-item-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 25px 15px;
+            background: var(--sub-bg);
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-item-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .c-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            background: #fff;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .c-label {
+            font-size: 0.9rem;
+            color: var(--main-color);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .c-value {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px 20px; background: #fff; margin-top: 40px; }
+        .footer-logo { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .footer-logo span { color: var(--main-color); }
+        .footer-copy { color: var(--text-gray); font-size: 0.9rem; }
+
+        /* ===== Mobile Responsive (모바일 및 태블릿 반응형 강화) ===== */
+        @media (max-width: 900px) {
+            .nav-container { flex-direction: column; gap: 15px; padding: 15px; }
+            .nav-menu { gap: 15px; }
+            .hero-content { flex-direction: column; text-align: center; }
+            .hero-divider { margin: 0 auto 20px; }
+            .hero-buttons { display: flex; justify-content: center; flex-wrap: wrap; }
+            #home { padding-top: 180px; } /* 네비게이션이 두 줄이 되므로 여백 확보 */
+        }
+        
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.7rem; }
+            .hero-title-en { font-size: 2.2rem; }
+            .hero-title-ko { font-size: 1.2rem; }
+            .profile-image-inner { width: 220px; height: 220px; } /* 모바일에서 사진 크기 축소 */
+            
+            .career-grid, .cert-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+            
+            .timeline-content { padding: 25px 15px; }
+            .portfolio-text { font-size: 0.9rem; }
+            
+            .contact-grid-info { grid-template-columns: 1fr 1fr; }
+            .contact-card-wide { padding: 40px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu { gap: 10px; }
+            .nav-menu li a { font-size: 0.85rem; }
+            .hero-title-en { font-size: 1.8rem; }
+            .profile-image-inner { width: 180px; height: 180px; } /* 아주 작은 화면에서 사진 더 축소 */
+            
+            .career-grid, .cert-grid { grid-template-columns: 1fr; } /* 카드를 1열로 배치 */
+            
+            .contact-grid-info { grid-template-columns: 1fr; } /* 연락처를 1열로 배치 */
+            .contact-header h3 { font-size: 1.3rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -19,18 +264,12 @@
                 <li><a href="#portfolio">포트폴리오</a></li>
                 <li><a href="#contact" class="nav-contact-btn">Contact</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="메뉴">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
     <!-- ===== HERO / HOME ===== -->
-    <section id="home">
+    <section id="home" class="section">
         <div class="hero-content">
-
             <!-- 텍스트 -->
             <div class="hero-text">
                 <div class="hero-badge">HRD Professional</div>
@@ -52,29 +291,17 @@
             <!-- 프로필 이미지 -->
             <div class="hero-image-wrapper">
                 <div class="profile-image-container">
-                    <div class="profile-image-ring"></div>
                     <div class="profile-image-inner">
-                        <!-- 프로필 사진을 넣으려면 아래 img 태그의 src를 변경하세요 -->
-                        <!-- 예: src="profile.jpg" -->
-                        <img src="st.png"  alt="김승태 프로필 사진" id="profileImg"
-                             onerror="this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';">
-                        <div class="profile-placeholder" id="profilePlaceholder">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                <circle cx="12" cy="7" r="4"/>
-                            </svg>
-                            <p>프로필 사진을<br>여기에 넣어주세요</p>
-                        </div>
+                        <img src="st.png" alt="김승태 프로필 사진" id="profileImg">
                     </div>
                     <div class="profile-badge">SCA 공인 트레이너</div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- ===== CAREER ===== -->
-    <section id="career">
+    <section id="career" class="section">
         <div class="section-container">
             <div class="section-header">
                 <span class="section-label">Experience</span>
@@ -82,152 +309,105 @@
                 <div class="section-divider"></div>
             </div>
             <div class="career-grid">
-
                 <div class="career-card">
                     <div class="career-icon">🏆</div>
-                    <div class="career-info">
-                        <span class="career-year">2024</span>
-                        <p class="career-title">창립 45주년 VCA 개인부문 우수상 (Respect)</p>
-                    </div>
+                    <span class="career-year">2024</span>
+                    <p class="career-title">창립 45주년 VCA 개인부문 우수상 (Respect)</p>
                 </div>
-
                 <div class="career-card">
                     <div class="career-icon">🥇</div>
-                    <div class="career-info">
-                        <span class="career-year">2015</span>
-                        <p class="career-title">창립 36주년 협력부문 우수사원</p>
-                    </div>
+                    <span class="career-year">2015</span>
+                    <p class="career-title">창립 36주년 협력부문 우수사원</p>
                 </div>
-
                 <div class="career-card">
                     <div class="career-icon">🎓</div>
-                    <div class="career-info">
-                        <span class="career-year">2017 ~ 현재</span>
-                        <p class="career-title">SCA AST (Authorized SCA Trainer)</p>
-                    </div>
+                    <span class="career-year">2017 ~ 현재</span>
+                    <p class="career-title">SCA AST (Authorized SCA Trainer)</p>
                 </div>
-
                 <div class="career-card">
                     <div class="career-icon">☕</div>
-                    <div class="career-info">
-                        <span class="career-year">2016 ~ 현재</span>
-                        <p class="career-title">LOTTE GRS ACADEMY 커피 교육 강사</p>
-                    </div>
+                    <span class="career-year">2016 ~ 현재</span>
+                    <p class="career-title">LOTTE GRS ACADEMY 커피 교육 강사</p>
                 </div>
-
                 <div class="career-card">
                     <div class="career-icon">🏅</div>
-                    <div class="career-info">
-                        <span class="career-year">2017</span>
-                        <p class="career-title">Korea National Barista Championship 운영위원</p>
-                    </div>
+                    <span class="career-year">2017</span>
+                    <p class="career-title">Korea National Barista Championship 운영위원</p>
                 </div>
-
                 <div class="career-card">
                     <div class="career-icon">⚖️</div>
-                    <div class="career-info">
-                        <span class="career-year">2015</span>
-                        <p class="career-title">Korea Barista Championship 심사위원</p>
-                    </div>
+                    <span class="career-year">2015</span>
+                    <p class="career-title">Korea Barista Championship 심사위원</p>
                 </div>
-
                 <div class="career-card">
                     <div class="career-icon">🎯</div>
-                    <div class="career-info">
-                        <span class="career-year">2013</span>
-                        <p class="career-title">Korea Barista Championship 본선</p>
-                    </div>
+                    <span class="career-year">2013</span>
+                    <p class="career-title">Korea Barista Championship 본선</p>
                 </div>
-
                 <div class="career-card">
                     <div class="career-icon">⭐</div>
-                    <div class="career-info">
-                        <span class="career-year">2012</span>
-                        <p class="career-title">Angel Barista Championship 결선</p>
-                    </div>
+                    <span class="career-year">2012</span>
+                    <p class="career-title">Angel Barista Championship 결선</p>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- ===== CERTIFICATE ===== -->
-    <section id="certificate">
+    <section id="certificate" class="section">
         <div class="section-container">
             <div class="section-header">
                 <span class="section-label">Qualifications</span>
-                <h2 class="section-title" style="color:#fff;">보유 <span style="color:#6dbfaa;">자격증</span></h2>
+                <h2 class="section-title">보유 <span>자격증</span></h2>
                 <div class="section-divider"></div>
             </div>
             <div class="cert-grid">
-
-			  <div class="cert-card">
+                <div class="cert-card">
                     <div class="cert-icon">📋</div>
-                    <p class="cert-name">인적자원개발지도사<br>1급</p>
-                    <p class="cert-category">HRD</p>
-				  </div>
-								  
-			  <div class="cert-card">
-                    <div class="cert-icon">📋</div>
-                    <p class="cert-name">HRD 전문가<br>1급</p>
+                    <p class="cert-name">인적자원개발지도사 1급</p>
                     <p class="cert-category">HRD</p>
                 </div>
-
+                <div class="cert-card">
+                    <div class="cert-icon">📋</div>
+                    <p class="cert-name">HRD 전문가 1급</p>
+                    <p class="cert-category">HRD</p>
+                </div>
                 <div class="cert-card">
                     <div class="cert-icon">🎓</div>
-                    <p class="cert-name">SCA AST<br>(공인 트레이너)</p>
+                    <p class="cert-name">SCA AST</p>
                     <p class="cert-category">SCA 자격증</p>
                 </div>
-
                 <div class="cert-card">
                     <div class="cert-icon">☕</div>
-                    <p class="cert-name">Barista Skills<br>Professional</p>
+                    <p class="cert-name">Barista Skills Professional</p>
                     <p class="cert-category">SCA 자격증</p>
                 </div>
-
                 <div class="cert-card">
                     <div class="cert-icon">🔥</div>
-                    <p class="cert-name">Roasting<br>Professional</p>
+                    <p class="cert-name">Roasting Professional</p>
                     <p class="cert-category">SCA 자격증</p>
                 </div>
-
                 <div class="cert-card">
                     <div class="cert-icon">🫖</div>
-                    <p class="cert-name">Brewing<br>Professional</p>
+                    <p class="cert-name">Brewing Professional</p>
                     <p class="cert-category">SCA 자격증</p>
                 </div>
-
                 <div class="cert-card">
                     <div class="cert-icon">🌿</div>
-                    <p class="cert-name">Greenbean<br>Professional</p>
+                    <p class="cert-name">Greenbean Professional</p>
                     <p class="cert-category">SCA 자격증</p>
                 </div>
-
                 <div class="cert-card">
                     <div class="cert-icon">👅</div>
-                    <p class="cert-name">Sensory Skills<br>Professional</p>
+                    <p class="cert-name">Sensory Skills Professional</p>
                     <p class="cert-category">SCA 자격증</p>
                 </div>
-				
-				 <div class="cert-card">
-                    <div class="cert-icon">🚗</div>
-                    <p class="cert-name">1종 대형<br>Driver's License</p>
-                    <p class="cert-category">운전면허</p>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-icon">🛵</div>
-                    <p class="cert-name">원동기<br>Driver's License</p>
-                    <p class="cert-category">운전면허</p>
-                </div>
-
-              
             </div>
         </div>
     </section>
 
     <!-- ===== PORTFOLIO ===== -->
-    <section id="portfolio">
+    <section id="portfolio" class="section">
         <div class="section-container">
             <div class="section-header">
                 <span class="section-label">Portfolio</span>
@@ -332,65 +512,45 @@
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section id="contact">
+    <section id="contact" class="section">
         <div class="section-container">
             <div class="section-header">
                 <span class="section-label">Contact</span>
                 <h2 class="section-title">연락처 <span>정보</span></h2>
                 <div class="section-divider"></div>
             </div>
-            <div class="contact-wrapper">
-
-               <!-- contact-wrapper 안의 전체 내용을 아래로 교체 -->
-<div class="contact-wrapper">
-
-    <div class="contact-info-side">
-        <h3>함께 성장하고 싶으신가요?</h3>
-        <p>언제든지 편하게 연락 주세요.<br>사람과 배움에 관한 이야기라면 언제나 환영합니다.</p>
-        <div class="contact-items">
-
-            <div class="contact-item">
-                <div class="contact-item-icon">👤</div>
-                <div>
-                    <p class="contact-item-label">이름</p>
-                    <p class="contact-item-value">김승태</p>
+            
+            <div class="contact-card-wide">
+                <div class="contact-header">
+                    <h3>함께 성장하고 싶으신가요?</h3>
+                    <p>언제든지 편하게 연락 주세요.<br>사람과 배움에 관한 이야기라면 언제나 환영합니다.</p>
                 </div>
-            </div>
+                
+                <div class="contact-grid-info">
+                    <div class="contact-item-box">
+                        <div class="c-icon">👤</div>
+                        <div class="c-label">이름</div>
+                        <div class="c-value">김승태</div>
+                    </div>
+                    
+                    <div class="contact-item-box">
+                        <div class="c-icon">📞</div>
+                        <div class="c-label">전화번호</div>
+                        <div class="c-value">02-709-1039</div>
+                    </div>
 
-            <div class="contact-item">
-                <div class="contact-item-icon">📞</div>
-                <div>
-                    <p class="contact-item-label">전화번호</p>
-                    <p class="contact-item-value">02-709-1039</p>
+                    <div class="contact-item-box">
+                        <div class="c-icon">✉️</div>
+                        <div class="c-label">이메일</div>
+                        <div class="c-value">seungtae_kim@lotte.net</div>
+                    </div>
+                    
+                    <div class="contact-item-box">
+                        <div class="c-icon">📍</div>
+                        <div class="c-label">주소</div>
+                        <div class="c-value">서울시 금천구 벚꽃로 104<br>금천롯데타워 9층</div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-item-icon">📍</div>
-                <div>
-                    <p class="contact-item-label">주소</p>
-                    <p class="contact-item-value">서울시 금천구 벚꽃로 104<br>금천롯데타워 9층</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- ✅ 심플하게 교체된 오른쪽 카드 -->
-    <div class="contact-card-side">
-        <div class="contact-card-inner">
-            <span class="contact-card-logo">☕</span>
-            <h4>Build Your Mental Muscle</h4>
-            <p class="contact-card-sub">마음의 근육을 키우자</p>
-            <div class="contact-card-divider"></div>
-            <p class="contact-card-name">김승태</p>
-            <p class="contact-card-role">HRD Professional · SCA AST</p>
-            <p class="contact-card-role">LOTTE GRS Academy</p>
-        </div>
-    </div>
-
-</div>
-
             </div>
         </div>
     </section>
@@ -403,6 +563,40 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- ===== JS ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+            const checkScroll = () => {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (sectionTop < windowHeight * 0.85) {
+                        section.classList.add('visible');
+                    }
+                });
+            };
+            checkScroll();
+            window.addEventListener('scroll', checkScroll);
+
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const timelineContents = document.querySelectorAll('.timeline-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const year = btn.getAttribute('data-year');
+                    timelineContents.forEach(content => {
+                        content.classList.remove('active');
+                        if(content.id === `year-${year}`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
